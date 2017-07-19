@@ -38,29 +38,43 @@ namespace Pegasus
 
         }
         //Custom
+        //Move UI
         Bunifu.Framework.UI.Drag drag = new Bunifu.Framework.UI.Drag();
-        public partial class HeaderPanel : home
+
+        private void HeaderPanel_MouseDown(object sender, MouseEventArgs e)
         {
-            public HeaderPanel()
-            {
-                InitializeComponent();
-            }
+            drag.Grab(this);
+        }
 
-            private void HeaderPanel_MouseDown(object sender, MouseEventArgs e)
-            {
-                drag.Grab(this);
-            }
+        private void HeaderPanel_MouseUp(object sender, MouseEventArgs e)
+        {
+            drag.Release();
+        }
 
-            private void HeaderPanel_MouseUp(object sender, MouseEventArgs e)
-            {
-                drag.Release();
-            }
+        private void HeaderPanel_MouseMove(object sender, MouseEventArgs e)
+        {
+            drag.MoveObject();
+        }
+        //Exit Application
+        private void ExitButton_MouseClick(object sender, MouseEventArgs e)
+        {
+            Application.Exit();
+        }
+        //Navbutton Clicks
 
-            private void HeaderPanel_MouseMove(object sender, MouseEventArgs e)
-            {
-                drag.MoveObject();
+        private void DashboardButton_MouseClick(object sender, MouseEventArgs e)
+        {
 
-            }
+        }
+
+        private void ToolwatchButton_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void bunifuTileButton1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

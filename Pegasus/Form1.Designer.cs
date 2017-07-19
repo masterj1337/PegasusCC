@@ -43,10 +43,17 @@
             this.Dashboard_HLabel = new System.Windows.Forms.Label();
             this.MiniButton = new Bunifu.Framework.UI.BunifuFlatButton();
             this.ExitButton = new Bunifu.Framework.UI.BunifuFlatButton();
+            this.DashboardPanel = new System.Windows.Forms.Panel();
+            this.DashSpectrumTile = new Bunifu.Framework.UI.BunifuTileButton();
+            this.DashADTile = new Bunifu.Framework.UI.BunifuTileButton();
+            this.DashToolTile = new Bunifu.Framework.UI.BunifuTileButton();
+            this.ADLoginUser = new Bunifu.Framework.UI.BunifuMaterialTextbox();
+            this.ADLoginPass = new Bunifu.Framework.UI.BunifuMaterialTextbox();
             this.NavPanel.SuspendLayout();
             this.QuarterPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ConnectLogo)).BeginInit();
             this.HeadPanel.SuspendLayout();
+            this.DashboardPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // NavPanel
@@ -86,7 +93,7 @@
             this.EnterpriseButton.IconRightZoom = 0D;
             this.EnterpriseButton.IconVisible = true;
             this.EnterpriseButton.IconZoom = 90D;
-            this.EnterpriseButton.IsTab = false;
+            this.EnterpriseButton.IsTab = true;
             this.EnterpriseButton.Location = new System.Drawing.Point(0, 268);
             this.EnterpriseButton.Margin = new System.Windows.Forms.Padding(6);
             this.EnterpriseButton.Name = "EnterpriseButton";
@@ -122,7 +129,7 @@
             this.ADButton.IconRightZoom = 0D;
             this.ADButton.IconVisible = true;
             this.ADButton.IconZoom = 90D;
-            this.ADButton.IsTab = false;
+            this.ADButton.IsTab = true;
             this.ADButton.Location = new System.Drawing.Point(0, 218);
             this.ADButton.Margin = new System.Windows.Forms.Padding(6);
             this.ADButton.Name = "ADButton";
@@ -158,7 +165,7 @@
             this.ToolwatchButton.IconRightZoom = 0D;
             this.ToolwatchButton.IconVisible = true;
             this.ToolwatchButton.IconZoom = 90D;
-            this.ToolwatchButton.IsTab = false;
+            this.ToolwatchButton.IsTab = true;
             this.ToolwatchButton.Location = new System.Drawing.Point(0, 168);
             this.ToolwatchButton.Margin = new System.Windows.Forms.Padding(6);
             this.ToolwatchButton.Name = "ToolwatchButton";
@@ -172,6 +179,7 @@
             this.ToolwatchButton.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.ToolwatchButton.Textcolor = System.Drawing.Color.LightGray;
             this.ToolwatchButton.TextFont = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ToolwatchButton.Click += new System.EventHandler(this.ToolwatchButton_Click);
             // 
             // SpectrumButton
             // 
@@ -194,7 +202,7 @@
             this.SpectrumButton.IconRightZoom = 0D;
             this.SpectrumButton.IconVisible = true;
             this.SpectrumButton.IconZoom = 90D;
-            this.SpectrumButton.IsTab = false;
+            this.SpectrumButton.IsTab = true;
             this.SpectrumButton.Location = new System.Drawing.Point(0, 118);
             this.SpectrumButton.Margin = new System.Windows.Forms.Padding(6);
             this.SpectrumButton.Name = "SpectrumButton";
@@ -212,7 +220,7 @@
             // DashboardButton
             // 
             this.DashboardButton.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(62)))), ((int)(((byte)(80)))));
-            this.DashboardButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
+            this.DashboardButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(62)))), ((int)(((byte)(80)))));
             this.DashboardButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.DashboardButton.BorderRadius = 0;
             this.DashboardButton.ButtonText = "Dashboard";
@@ -230,20 +238,21 @@
             this.DashboardButton.IconRightZoom = 0D;
             this.DashboardButton.IconVisible = true;
             this.DashboardButton.IconZoom = 90D;
-            this.DashboardButton.IsTab = false;
+            this.DashboardButton.IsTab = true;
             this.DashboardButton.Location = new System.Drawing.Point(0, 68);
             this.DashboardButton.Margin = new System.Windows.Forms.Padding(6);
             this.DashboardButton.Name = "DashboardButton";
             this.DashboardButton.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
             this.DashboardButton.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(56)))), ((int)(((byte)(74)))));
             this.DashboardButton.OnHoverTextColor = System.Drawing.Color.White;
-            this.DashboardButton.selected = false;
+            this.DashboardButton.selected = true;
             this.DashboardButton.Size = new System.Drawing.Size(212, 50);
             this.DashboardButton.TabIndex = 2;
             this.DashboardButton.Text = "Dashboard";
             this.DashboardButton.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.DashboardButton.Textcolor = System.Drawing.Color.LightGray;
             this.DashboardButton.TextFont = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DashboardButton.MouseClick += new System.Windows.Forms.MouseEventHandler(this.DashboardButton_MouseClick);
             // 
             // InfoPanel
             // 
@@ -301,6 +310,9 @@
             this.HeadPanel.Name = "HeadPanel";
             this.HeadPanel.Size = new System.Drawing.Size(884, 68);
             this.HeadPanel.TabIndex = 1;
+            this.HeadPanel.MouseDown += new System.Windows.Forms.MouseEventHandler(this.HeaderPanel_MouseDown);
+            this.HeadPanel.MouseMove += new System.Windows.Forms.MouseEventHandler(this.HeaderPanel_MouseMove);
+            this.HeadPanel.MouseUp += new System.Windows.Forms.MouseEventHandler(this.HeaderPanel_MouseUp);
             // 
             // Dashboard_HLabel
             // 
@@ -382,6 +394,115 @@
             this.ExitButton.Textcolor = System.Drawing.Color.DimGray;
             this.ExitButton.TextFont = new System.Drawing.Font("Century Gothic", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ExitButton.Click += new System.EventHandler(this.ExitButton_Click);
+            this.ExitButton.MouseClick += new System.Windows.Forms.MouseEventHandler(this.ExitButton_MouseClick);
+            // 
+            // DashboardPanel
+            // 
+            this.DashboardPanel.Controls.Add(this.ADLoginPass);
+            this.DashboardPanel.Controls.Add(this.ADLoginUser);
+            this.DashboardPanel.Controls.Add(this.DashToolTile);
+            this.DashboardPanel.Controls.Add(this.DashADTile);
+            this.DashboardPanel.Controls.Add(this.DashSpectrumTile);
+            this.DashboardPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.DashboardPanel.Location = new System.Drawing.Point(212, 68);
+            this.DashboardPanel.Name = "DashboardPanel";
+            this.DashboardPanel.Size = new System.Drawing.Size(884, 564);
+            this.DashboardPanel.TabIndex = 2;
+            // 
+            // DashSpectrumTile
+            // 
+            this.DashSpectrumTile.BackColor = System.Drawing.Color.SeaGreen;
+            this.DashSpectrumTile.color = System.Drawing.Color.SeaGreen;
+            this.DashSpectrumTile.colorActive = System.Drawing.Color.MediumSeaGreen;
+            this.DashSpectrumTile.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.DashSpectrumTile.Font = new System.Drawing.Font("Century Gothic", 15.75F);
+            this.DashSpectrumTile.ForeColor = System.Drawing.Color.White;
+            this.DashSpectrumTile.Image = ((System.Drawing.Image)(resources.GetObject("DashSpectrumTile.Image")));
+            this.DashSpectrumTile.ImagePosition = 20;
+            this.DashSpectrumTile.ImageZoom = 50;
+            this.DashSpectrumTile.LabelPosition = 41;
+            this.DashSpectrumTile.LabelText = "Spectrum";
+            this.DashSpectrumTile.Location = new System.Drawing.Point(628, 86);
+            this.DashSpectrumTile.Margin = new System.Windows.Forms.Padding(6);
+            this.DashSpectrumTile.Name = "DashSpectrumTile";
+            this.DashSpectrumTile.Size = new System.Drawing.Size(128, 129);
+            this.DashSpectrumTile.TabIndex = 2;
+            // 
+            // DashADTile
+            // 
+            this.DashADTile.BackColor = System.Drawing.Color.SeaGreen;
+            this.DashADTile.color = System.Drawing.Color.SeaGreen;
+            this.DashADTile.colorActive = System.Drawing.Color.MediumSeaGreen;
+            this.DashADTile.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.DashADTile.Font = new System.Drawing.Font("Century Gothic", 15.75F);
+            this.DashADTile.ForeColor = System.Drawing.Color.White;
+            this.DashADTile.Image = ((System.Drawing.Image)(resources.GetObject("DashADTile.Image")));
+            this.DashADTile.ImagePosition = 20;
+            this.DashADTile.ImageZoom = 50;
+            this.DashADTile.LabelPosition = 41;
+            this.DashADTile.LabelText = "AD";
+            this.DashADTile.Location = new System.Drawing.Point(127, 86);
+            this.DashADTile.Margin = new System.Windows.Forms.Padding(6);
+            this.DashADTile.Name = "DashADTile";
+            this.DashADTile.Size = new System.Drawing.Size(128, 129);
+            this.DashADTile.TabIndex = 3;
+            // 
+            // DashToolTile
+            // 
+            this.DashToolTile.BackColor = System.Drawing.Color.SeaGreen;
+            this.DashToolTile.color = System.Drawing.Color.SeaGreen;
+            this.DashToolTile.colorActive = System.Drawing.Color.MediumSeaGreen;
+            this.DashToolTile.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.DashToolTile.Font = new System.Drawing.Font("Century Gothic", 15.75F);
+            this.DashToolTile.ForeColor = System.Drawing.Color.White;
+            this.DashToolTile.Image = ((System.Drawing.Image)(resources.GetObject("DashToolTile.Image")));
+            this.DashToolTile.ImagePosition = 20;
+            this.DashToolTile.ImageZoom = 50;
+            this.DashToolTile.LabelPosition = 41;
+            this.DashToolTile.LabelText = "Toolwatch";
+            this.DashToolTile.Location = new System.Drawing.Point(377, 86);
+            this.DashToolTile.Margin = new System.Windows.Forms.Padding(6);
+            this.DashToolTile.Name = "DashToolTile";
+            this.DashToolTile.Size = new System.Drawing.Size(128, 129);
+            this.DashToolTile.TabIndex = 4;
+            // 
+            // ADLoginUser
+            // 
+            this.ADLoginUser.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.ADLoginUser.Font = new System.Drawing.Font("Century Gothic", 9.75F);
+            this.ADLoginUser.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.ADLoginUser.HintForeColor = System.Drawing.Color.Empty;
+            this.ADLoginUser.HintText = "";
+            this.ADLoginUser.isPassword = false;
+            this.ADLoginUser.LineFocusedColor = System.Drawing.Color.Blue;
+            this.ADLoginUser.LineIdleColor = System.Drawing.Color.Gray;
+            this.ADLoginUser.LineMouseHoverColor = System.Drawing.Color.Blue;
+            this.ADLoginUser.LineThickness = 3;
+            this.ADLoginUser.Location = new System.Drawing.Point(93, 225);
+            this.ADLoginUser.Margin = new System.Windows.Forms.Padding(4);
+            this.ADLoginUser.Name = "ADLoginUser";
+            this.ADLoginUser.Size = new System.Drawing.Size(194, 33);
+            this.ADLoginUser.TabIndex = 5;
+            this.ADLoginUser.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            // 
+            // ADLoginPass
+            // 
+            this.ADLoginPass.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.ADLoginPass.Font = new System.Drawing.Font("Century Gothic", 9.75F);
+            this.ADLoginPass.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.ADLoginPass.HintForeColor = System.Drawing.Color.Empty;
+            this.ADLoginPass.HintText = "";
+            this.ADLoginPass.isPassword = true;
+            this.ADLoginPass.LineFocusedColor = System.Drawing.Color.Blue;
+            this.ADLoginPass.LineIdleColor = System.Drawing.Color.Gray;
+            this.ADLoginPass.LineMouseHoverColor = System.Drawing.Color.Blue;
+            this.ADLoginPass.LineThickness = 3;
+            this.ADLoginPass.Location = new System.Drawing.Point(93, 266);
+            this.ADLoginPass.Margin = new System.Windows.Forms.Padding(4);
+            this.ADLoginPass.Name = "ADLoginPass";
+            this.ADLoginPass.Size = new System.Drawing.Size(194, 33);
+            this.ADLoginPass.TabIndex = 6;
+            this.ADLoginPass.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             // 
             // home
             // 
@@ -389,6 +510,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Silver;
             this.ClientSize = new System.Drawing.Size(1096, 632);
+            this.Controls.Add(this.DashboardPanel);
             this.Controls.Add(this.HeadPanel);
             this.Controls.Add(this.NavPanel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -401,6 +523,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.ConnectLogo)).EndInit();
             this.HeadPanel.ResumeLayout(false);
             this.HeadPanel.PerformLayout();
+            this.DashboardPanel.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -421,6 +544,12 @@
         private Bunifu.Framework.UI.BunifuFlatButton ToolwatchButton;
         private Bunifu.Framework.UI.BunifuFlatButton SpectrumButton;
         private System.Windows.Forms.Label Dashboard_HLabel;
+        private System.Windows.Forms.Panel DashboardPanel;
+        private Bunifu.Framework.UI.BunifuTileButton DashSpectrumTile;
+        private Bunifu.Framework.UI.BunifuTileButton DashToolTile;
+        private Bunifu.Framework.UI.BunifuTileButton DashADTile;
+        private Bunifu.Framework.UI.BunifuMaterialTextbox ADLoginPass;
+        private Bunifu.Framework.UI.BunifuMaterialTextbox ADLoginUser;
     }
 }
 
